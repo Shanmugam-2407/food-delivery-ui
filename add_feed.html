@@ -145,20 +145,15 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="/admin" style="background-color:#FF9900; color:#FFFFFF">
+            <a class="nav-link" href="/userhome">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
-		   <li class="nav-item">
-            <a class="nav-link" href="/view_query">
-              <i class="icon-grid menu-icon"></i>
-              <span class="menu-title">Queries</span>
-            </a>
-          </li>
+		  
 		 
 		 <li class="nav-item">
-            <a class="nav-link" href="/view_feed">
+            <a class="nav-link" href="/add_feed" style="background-color:#FF9900; color:#FFFFFF">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Feedback</span>
             </a>
@@ -179,7 +174,7 @@
 		
 		
           <div class="row">            
-            <div class="col-lg-8 grid-margin stretch-card">
+            <div class="col-lg-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title"></h4>
@@ -187,21 +182,38 @@
                    <code></code>
                   </p>
                  
-                  <h3 align="center"></h3>
-				 
+                  <h3 align="center">Send Your Feedback</h3>
+				 {% if msg=="success" %}
+					<span style="color:#00CC00">Your Feedback has sent..</span>
+					<script>
+//Using setTimeout to execute a function after 5 seconds.
+setTimeout(function () {
+   //Redirect with JavaScript
+  window.location.href= '/userhome';
+}, 2000);
+</script>
+					
+					{% endif %}
 					<form name="form1" method="post">
 					
-					 <div class="profile-container">
-
-
-					<h2 align="center">Admin</h2>
-						
-						<p align="center"><img src="../../static/web/images/profile.jpg" class="profile-img"></p>
+					<div class="row">
+							<div class="col-md-12">
+								
+								
+								<label>Typ your Feedback</label>
+								<textarea name="feedback" class="form-control"></textarea>
+								
+							</div>
+					</div>
+							<br>
+					<div class="row">
+						<div class="col-md-4"></div>
+						<div class="col-md-6">
 					
-					<p align="center"><a href="/view_share" class="btn" style="background-color:#FF9900">Delivery Share</a></p>
-				</div>
-					
-					
+						<input type="submit" name="btn" class="btn btn-primary" value="Send">
+						</div>
+					</div>
+		
 					</form>
 					
                 </div>

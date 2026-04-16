@@ -16,6 +16,60 @@
   <link rel="stylesheet" href="../../static/web/css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="../../static/web/images/favicon.png" />
+  <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f9f9f9;
+            padding: 30px;
+        }
+        .profile-container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .profile-img {
+            display: block;
+            margin: 15px auto;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #4caf50;
+        }
+        .info {
+            margin: 20px 0;
+        }
+        .info p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #555;
+        }
+        .status {
+            font-weight: bold;
+            color: #ff9800;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -23,7 +77,7 @@
     <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div style="background-color:#000000; color:#FFFFFF" class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="" style="color:#FFFFFF">{{uname}}</a>
+        <a class="navbar-brand brand-logo mr-5" href="" style="color:#FFFFFF">{{usr[1]}}</a>
         <a class="navbar-brand brand-logo-mini" href="" style="color:#FFFFFF"></a>
       </div>
       <div style="background-color:#000000" class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
@@ -145,20 +199,15 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="/admin" style="background-color:#FF9900; color:#FFFFFF">
+            <a class="nav-link" href="/userhome" style="background-color:#FF9900; color:#FFFFFF">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
-		   <li class="nav-item">
-            <a class="nav-link" href="/view_query">
-              <i class="icon-grid menu-icon"></i>
-              <span class="menu-title">Queries</span>
-            </a>
-          </li>
+		  
 		 
 		 <li class="nav-item">
-            <a class="nav-link" href="/view_feed">
+            <a class="nav-link" href="/add_feed">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Feedback</span>
             </a>
@@ -187,22 +236,29 @@
                    <code></code>
                   </p>
                  
-                  <h3 align="center"></h3>
+                  <h3 align="center">Customer</h3>
 				 
 					<form name="form1" method="post">
 					
 					 <div class="profile-container">
 
 
-					<h2 align="center">Admin</h2>
+					<h2>Profile</h2>
 						
-						<p align="center"><img src="../../static/web/images/profile.jpg" class="profile-img"></p>
+						<img src="../../static/web/images/profile.jpg" class="profile-img">
 					
-					<p align="center"><a href="/view_share" class="btn" style="background-color:#FF9900">Delivery Share</a></p>
+					
+						<p><strong>Name:</strong> {{ usr[1] }}</p>
+						<p><strong>Email:</strong> {{ usr[5] }}</p>
+						<p><strong>Mobile No.:</strong> {{ usr[4] }}</p>
+						<p><strong>Address:</strong> {{ usr[2] }}, {{usr[3]}}</p>
 				</div>
 					
 					
+				
 					</form>
+					
+					<p align="center"><a href="/share" class="btn" style="background-color:#FF9900">Delivery Share</a></p>
 					
                 </div>
               </div>

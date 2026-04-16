@@ -145,13 +145,13 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="/admin" style="background-color:#FF9900; color:#FFFFFF">
+            <a class="nav-link" href="/admin">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
 		   <li class="nav-item">
-            <a class="nav-link" href="/view_query">
+            <a class="nav-link" href="/view_query" style="background-color:#FF9900; color:#FFFFFF">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Queries</span>
             </a>
@@ -179,7 +179,7 @@
 		
 		
           <div class="row">            
-            <div class="col-lg-8 grid-margin stretch-card">
+            <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title"></h4>
@@ -187,21 +187,28 @@
                    <code></code>
                   </p>
                  
-                  <h3 align="center"></h3>
+                  <h3 align="center">Queries / Message</h3>
 				 
 					<form name="form1" method="post">
-					
-					 <div class="profile-container">
-
-
-					<h2 align="center">Admin</h2>
-						
-						<p align="center"><img src="../../static/web/images/profile.jpg" class="profile-img"></p>
-					
-					<p align="center"><a href="/view_share" class="btn" style="background-color:#FF9900">Delivery Share</a></p>
-				</div>
-					
-					
+					{% for rs in data %}
+					<table class="table">
+						<tr style="background-color:#FF9900; color:#FFFFFF">
+							<td>Query by {{rs[1]}}</td>
+							<td align="right"> {{rs[5]}}</td>
+						</tr>
+						<tr>
+							<td>Email: {{rs[2]}}</td>
+							
+						</tr>
+						<tr>
+							<td>Subject: {{rs[3]}}</td>
+						</tr>
+						<tr>
+						<td>{{rs[4]}}</td>
+						</tr>
+					</table>
+					<br>
+					{% endfor %}
 					</form>
 					
                 </div>
